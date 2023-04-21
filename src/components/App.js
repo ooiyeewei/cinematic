@@ -2,7 +2,7 @@ import React, {useState, useEffect, useReducer} from "react";
 import "../App.css";
 import Header from "./header";
 import Movie from "./movie";
-import MovieFilter from "./movieFilter";
+import MovieFilter from "./movieFilter/movieFilter";
 
 const MOVIE_API_URL = "https://www.omdbapi.com/?s=man&apikey=4a3b711b"; // you should replace this with yours
 const initialState = {
@@ -56,7 +56,17 @@ const App = () => {
             type: "SEARCH_MOVIES_REQUEST"
         });
 
-        fetch(`https://www.omdbapi.com/?s=${searchValue}&apikey=4a3b711b`)
+        let searchText = '';
+
+        if (searchValue?.title) {
+            searchText += 's=' + searchValue?.title;
+        }
+
+        if (searchValue?.type?.value) {
+            searchText += '&type=' + searchValue?.type?.value;
+        }
+
+        fetch(`https://www.omdbapi.com/?${searchText}&apikey=4a3b711b`)
             .then(response => response.json())
             .then(jsonResponse => {
                 if (jsonResponse.Response === "True") {

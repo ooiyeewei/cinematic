@@ -1,0 +1,28 @@
+.submit-button {
+    padding: 5px;
+    background-color: transparent;
+    color: hsl(0, 0%, 50%);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #282c34;
+    color: antiquewhite;
+}
+
+
+.search-input {
+    width: 40%;
+    min-width: 170px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-select {
+    margin-left: 15px;
+    width: 200px;
+}
